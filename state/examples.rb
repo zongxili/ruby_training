@@ -1,77 +1,47 @@
-# good_dog.rb
+# class GoodDog
+#   @@number_of_dogs = 0
 
-class GoodDog
-  attr_accessor :name, :height, :weight
+#   def initialize
+#     @@number_of_dogs += 1
+#   end
 
-  def initialize(n, h, w)
-    @name = n
-    @height = h
-    @weight = w
-  end
+#   def self.total_number_of_dogs
+#     @@number_of_dogs
+#   end
 
-  def speak
-    "#{name} says arf!"
-  end
+#   def self.gas_mileage(gallons, miles)
+#     puts "#{miles / gallons} miles per gallon of gas"
+#   end
 
-  def change_info(n, h, w)
-    self.name = n
-    self.height = h
-    self.weight = w
-  end
+#   def self.to_s
+#     puts "number of dogs is #{@@number_of_dogs}"
+#   end
+# end
 
-  def info
-    "#{name} weighs #{weight} and is #{height} tall."
-  end
-end
-sparky = GoodDog.new("Sparky")
-puts sparky.speak
-puts sparky.name            # => "Sparky"
-sparky.name = "Spartacus"
-puts sparky.name            # => "Spartacus"
-puts sparky.weight
-puts sparky.height
+# puts GoodDog.total_number_of_dogs   # => 0
 
+# dog1 = GoodDog.new
+# dog2 = GoodDog.new
 
+# puts GoodDog.total_number_of_dogs   # => 2
 
+# GoodDog.gas_mileage(100, 100)   # => 2
 
+# puts GoodDog
+
+# # and this is equivalent to the one below
+# puts dog2.to_s
 
 class MyCar
+  # code omitted for brevity...
 
-  def initialize(year, model, color)
-    @year = year
-    @model = model
-    @color = color
-    @current_speed = 0
-  end
-
-  def speed_up(number)
-    @current_speed += number
-    puts "You push the gas and accelerate #{number} mph."
-  end
-
-  def brake(number)
-    @current_speed -= number
-    puts "You push the brake and decelerate #{number} mph."
-  end
-
-  def current_speed
-    puts "You are now going #{@current_speed} mph."
-  end
-
-  def shut_down
-    @current_speed = 0
-    puts "Let's park this bad boy!"
+  
+  def to_s
+    "My car is a #{color}, #{year}, #{@model}!"
   end
 end
 
-lumina = MyCar.new(1997, 'chevy lumina', 'white')
-lumina.speed_up(20)
-lumina.current_speed
-lumina.speed_up(20)
-lumina.current_speed
-lumina.brake(20)
-lumina.current_speed
-lumina.brake(20)
-lumina.current_speed
-lumina.shut_down
-lumina.current_speed
+my_car = MyCar.new("2010", "Ford Focus", "silver")
+puts my_car  # => My car is a silver, 2010, Ford Focus.
+
+## Note the "puts" calls "to_s" automatically.
